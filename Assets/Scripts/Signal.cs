@@ -23,6 +23,17 @@ public class Signal : MonoBehaviour
         if (Mathf.Abs(transform.position.x) > 30 || Mathf.Abs(transform.position.y) > 30) {
             Destroy(gameObject);
         }
+
+        RaycastHit2D hit = Physics2D.Linecast(transform.position, transform.position + transform.up * 2, LayerMask.GetMask("Goal"));
+        Debug.Log(hit.collider);
+        if (hit.collider != null) {
+            Time.timeScale = 0.2f;
+        }
+    }
+
+    void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.up);
     }
     
 
