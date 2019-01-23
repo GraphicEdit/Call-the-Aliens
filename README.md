@@ -10,6 +10,6 @@ Musics: @Ben Mayes#5880 (ben.mayes.93@gmail.com)
 
 
 About The Licenses
-........................
+
 Attribution-ShareAlike 
 CC BY-SA
