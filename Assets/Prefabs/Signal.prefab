@@ -4831,10 +4831,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f10ab72fd7c0dbd40b761e85fb1a25c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alienAnimation: {fileID: 0}
   absorbSounds:
   - {fileID: 8300000, guid: 57b969839e22e2646b4a0a7b6e6f55c1, type: 3}
   - {fileID: 8300000, guid: 2cc7f2993fffb3741a9721990c7f2145, type: 3}
   - {fileID: 8300000, guid: e1bc6c705afffe24097ac3fd324f920d, type: 3}
+  satelliteHitSound: {fileID: 8300000, guid: b87725258845d964f98f0b991b0bee67, type: 3}
 --- !u!82 &5981524654756079667
 AudioSource:
   m_ObjectHideFlags: 0

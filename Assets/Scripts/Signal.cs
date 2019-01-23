@@ -12,6 +12,7 @@ public class Signal : MonoBehaviour
     private bool isFinished = false;
 
     [SerializeField] private AudioClip[] absorbSounds;
+    [SerializeField] private AudioClip satelliteHitSound;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +52,7 @@ public class Signal : MonoBehaviour
             Destroy(gameObject);
         }
         if (col.gameObject.layer == LayerMask.NameToLayer("Relay") && timeLived > timeBeforeSplit) {
+            GetComponent<AudioSource>().PlayOneShot(satelliteHitSound);
             GameObject newSignal1 = Instantiate(gameObject);
             newSignal1.GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity;
             newSignal1.transform.Rotate(Vector3.forward, 15f);
