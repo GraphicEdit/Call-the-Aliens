@@ -25,7 +25,6 @@ public class Signal : MonoBehaviour
         }
 
         RaycastHit2D hit = Physics2D.Linecast(transform.position, transform.position + transform.up * 2, LayerMask.GetMask("Goal"));
-        Debug.Log(hit.collider);
         if (hit.collider != null) {
             Time.timeScale = 0.2f;
         }
