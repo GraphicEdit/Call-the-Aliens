@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3677809463816384026}
   - component: {fileID: 1355070559934562806}
   - component: {fileID: 3305516508207136387}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.3
+      scalar: 0.4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -346,7 +346,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.34
+      scalar: 0.2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -927,7 +927,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2000
+      scalar: 1000
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4710,7 +4710,8 @@ GameObject:
   - component: {fileID: 9132247184467055523}
   - component: {fileID: 8189666471055187489}
   - component: {fileID: 3968668898344709163}
-  m_Layer: 0
+  - component: {fileID: 4884904264309940719}
+  m_Layer: 9
   m_Name: Signal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4817,3 +4818,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &4884904264309940719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3762699246815499162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10ab72fd7c0dbd40b761e85fb1a25c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
