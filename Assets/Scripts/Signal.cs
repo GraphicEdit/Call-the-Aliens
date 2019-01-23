@@ -42,7 +42,9 @@ public class Signal : MonoBehaviour
             newSignal2.GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity;
             newSignal2.transform.Rotate(Vector3.forward, -15f);
             newSignal2.GetComponent<Rigidbody2D>().velocity = newSignal2.GetComponent<Rigidbody2D>().velocity.magnitude * newSignal2.transform.up;
-
+        }
+        if (col.gameObject.layer == LayerMask.NameToLayer("Goal")) {
+            Camera.main.GetComponent<LevelManager>().GoToLevel(Camera.main.GetComponent<LevelManager>().nextLevel);
         }
     }
 }
