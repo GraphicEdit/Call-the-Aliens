@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject signalSpawn;
     [SerializeField] private GameObject signalPrefab;
 
+    [SerializeField] private GameObject alienAnimation;
+
     [SerializeField] private AudioClip[] signalSounds;
 
     [SerializeField] private float signalForce;
@@ -36,6 +38,7 @@ public class PlayerController : MonoBehaviour
         GetComponent<AudioSource>().PlayOneShot(signalSounds[Random.Range(0, signalSounds.Length)]);
         Vector2 direction = dishMount.transform.up;
         GameObject newSignal = Instantiate(signalPrefab);
+        newSignal.GetComponent<Signal>().alienAnimation = alienAnimation;
         newSignal.transform.position = signalSpawn.transform.position;
         newSignal.GetComponent<Rigidbody2D>().AddForce(direction * signalForce, ForceMode2D.Impulse);
     }

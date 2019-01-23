@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Signal : MonoBehaviour
 {
+    public GameObject alienAnimation;
+
     private float timeLived = 0f;
     private float timeBeforeSplit = 0.05f;
+
+    private bool isFinished = false;
 
     [SerializeField] private AudioClip[] absorbSounds;
 
@@ -20,12 +24,12 @@ public class Signal : MonoBehaviour
     {
         transform.up = GetComponent<Rigidbody2D>().velocity.normalized;
         timeLived += Time.deltaTime;
-        if (Mathf.Abs(transform.position.x) > 30 || Mathf.Abs(transform.position.y) > 30) {
+        if ((Mathf.Abs(transform.position.x) > 30 || Mathf.Abs(transform.position.y) > 30) && !isFinished) {
             Destroy(gameObject);
         }
 
         RaycastHit2D hit = Physics2D.Linecast(transform.position, transform.position + transform.up * 2, LayerMask.GetMask("Goal"));
-        if (hit.collider != null) {
+        if (hit.collider != null && isFinished == false && !hit.collider.gameObject.GetComponent<Goal>().isEnd) {
             Time.timeScale = 0.2f;
         }
     }
@@ -57,7 +61,19 @@ public class Signal : MonoBehaviour
             newSignal2.GetComponent<Rigidbody2D>().velocity = newSignal2.GetComponent<Rigidbody2D>().velocity.magnitude * newSignal2.transform.up;
         }
         if (col.gameObject.layer == LayerMask.NameToLayer("Goal")) {
-            Camera.main.GetComponent<LevelManager>().GoToLevel(Camera.main.GetComponent<LevelManager>().nextLevel);
+            if (col.gameObject.GetComponent<Goal>().isEnd == false) {
+                col.gameObject.GetComponent<Goal>().isEnd = true;
+                isFinished = true;
+                Time.timeScale = 1f;
+                StartCoroutine("Finish");
+            }
         }
+    }
+
+    IEnumerator Finish() {
+        alienAnimation.GetComponent<Animator>().SetTrigger("go");
+        alienAnimation.GetComponent<AudioSource>().PlayDelayed(0.7f);
+        yield return new WaitForSeconds(5f);
+        Camera.main.GetComponent<LevelManager>().GoToLevel(Camera.main.GetComponent<LevelManager>().nextLevel);
     }
 }
