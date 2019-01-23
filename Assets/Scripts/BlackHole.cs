@@ -5,6 +5,7 @@ using UnityEngine;
 public class BlackHole : MonoBehaviour {
     [SerializeField] private float rotationSpeed = 1f;
     [SerializeField] private float pullStrength = 100f;
+
     // Update is called once per frame
     void Update() {
         // rotate

@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject signalSpawn;
     [SerializeField] private GameObject signalPrefab;
 
+    [SerializeField] private AudioClip[] signalSounds;
+
     [SerializeField] private float signalForce;
 
     // Start is called before the first frame update
@@ -31,6 +33,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void Shoot() {
+        GetComponent<AudioSource>().PlayOneShot(signalSounds[Random.Range(0, signalSounds.Length)]);
         Vector2 direction = dishMount.transform.up;
         GameObject newSignal = Instantiate(signalPrefab);
         newSignal.transform.position = signalSpawn.transform.position;

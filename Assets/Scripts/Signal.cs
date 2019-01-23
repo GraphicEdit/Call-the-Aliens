@@ -7,6 +7,8 @@ public class Signal : MonoBehaviour
     private float timeLived = 0f;
     private float timeBeforeSplit = 0.05f;
 
+    [SerializeField] private AudioClip[] absorbSounds;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,7 @@ public class Signal : MonoBehaviour
 
      void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.layer == LayerMask.NameToLayer("BlackHoleCenter")) {
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(absorbSounds[Random.Range(0, absorbSounds.Length)]);
             Destroy(gameObject);
         }
         if (col.gameObject.layer == LayerMask.NameToLayer("Relay") && timeLived > timeBeforeSplit) {
