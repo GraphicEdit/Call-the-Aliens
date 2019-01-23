@@ -5,7 +5,7 @@ using UnityEngine;
 public class EndingAnimation : MonoBehaviour
 {
     public GameObject earthBlowupAnimation;
-    public GameObject earth;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +23,6 @@ public class EndingAnimation : MonoBehaviour
     }
 
     public void BlowupEarth() {
-        earth.SetActive(false);
         earthBlowupAnimation.GetComponent<Animator>().SetTrigger("go");
     }
     

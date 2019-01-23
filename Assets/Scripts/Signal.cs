@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Signal : MonoBehaviour
 {
-    public GameObject alienAnimation;
-
     private float timeLived = 0f;
     private float timeBeforeSplit = 0.05f;
 
@@ -73,9 +71,7 @@ public class Signal : MonoBehaviour
     }
 
     IEnumerator Finish() {
-        alienAnimation.GetComponent<Animator>().SetTrigger("go");
-        alienAnimation.GetComponent<AudioSource>().PlayDelayed(0.7f);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         Camera.main.GetComponent<LevelManager>().GoToLevel(Camera.main.GetComponent<LevelManager>().nextLevel);
     }
 }
